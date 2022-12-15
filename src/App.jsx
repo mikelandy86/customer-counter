@@ -14,7 +14,7 @@ function App() {
           Save
         </button>
         <p id="save-el">Previous numbers: {"\u00A0"}</p>
-        <script src="/index.js"></script>
+        {/* <script src="/src/index.js"></script> */}
       </div>
     </div>
   );
