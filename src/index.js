@@ -5,7 +5,6 @@ let saveEl = document.getElementById("save-el"); // Grabbing the element of save
 let saveAndSep = "";
 
 function increment() {
-    
     count += 1
     document.getElementById("count-el").innerText = count;
 }
