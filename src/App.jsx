@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import "./index";
+import "./index.js";
 function App() {
   return (
     <div className="App">
@@ -14,7 +14,6 @@ function App() {
           Save
         </button>
         <p id="save-el">Previous numbers: {"\u00A0"}</p>
-        {/* <script src="/src/index.js"></script> */}
       </div>
     </div>
   );
