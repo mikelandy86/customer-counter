@@ -1,6 +1,22 @@
 import { useState } from "react";
 import "./App.css";
-import "../build/static/index.jsx";
+
+let count = 0;
+// Grabbing the element of save text (Won't work because React Project?)
+let saveAndSep = "";
+
+function increment() {
+  count += 1;
+  document.getElementById("count-el").innerText = count;
+}
+
+function save() {
+  saveAndSep = count + " - ";
+  document.getElementById("save-el").innerHTML += saveAndSep;
+  count = 0;
+  document.getElementById("count-el").innerText = count;
+}
+
 function App() {
   return (
     <div className="App">
