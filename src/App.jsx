@@ -17,6 +17,13 @@ function save() {
   document.getElementById("count-el").innerText = count;
 }
 
+function reset() {
+  saveAndSep = count + " - ";
+  document.getElementById("save-el").innerHTML = "";
+  count = 0;
+  document.getElementById("count-el").innerText = count;
+}
+
 function App() {
   return (
     <div className="App">
@@ -28,6 +35,9 @@ function App() {
         </button>
         <button id="save-btn" onClick={save}>
           Save
+        </button>
+        <button id="save-btn" onClick={reset}>
+          Reset
         </button>
         <p id="save-el">Previous numbers: {"\u00A0"}</p>
       </div>
