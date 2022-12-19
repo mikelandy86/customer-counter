@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import "./index.js";
+import "../build/static/index.js";
 function App() {
   return (
     <div className="App">
