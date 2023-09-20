@@ -1,4 +1,4 @@
--
+-Att sätta bra namn på grupper i Azure DevOps hjälper till att hålla ordning och gör det säkrare. Beroende på projektet, välj den namnstil som passar bäst.
 
 ## **Behörighetsmodeller i Azure DevOps**
 
