@@ -1,55 +1,53 @@
-Absolut, jag ska ge dig en fullständig och snyggt formaterad guide redo att klistras in i din Wiki:
+-
+
+## **Behörighetsmodeller i Azure DevOps**
+
+När du hanterar behörigheter i Azure DevOps finns det olika namnstandardsalternativ att överväga. Nedan är en jämförelse av de tre huvudalternativen:
+
+### **Notering**: 
+För att ge ytterligare klarhet kring vad varje behörighetsnivå faktiskt innebär, speciellt för "Edit"-behörigheten, rekommenderas det att specificera detta i beskrivningen (Desc) för varje grupp. Detta ger en mer detaljerad översikt och underlättar förståelsen för medlemmarna.
+
+### **1. Guest-Reponamn-Read/Edit**
+
+**Format**:
+- `Guest-[Reponamn]-Read`
+- `Guest-[Reponamn]-Edit`
+
+**Fördelar**:
+- **Specifikitet**: Tydligt vilket repo det gäller.
+- **Granulär Kontroll**: Möjliggör finjustering av behörigheter på repo-nivå.
+
+**Nackdelar**:
+- **Skalbarhet**: Kan bli många grupper om det finns många repos.
+- **Hantering**: Kräver mer arbete att upprätta och underhålla när antalet repos växer.
+
+### **2. Guest-projektNamn-Read/Edit**
+
+**Format**:
+- `Guest-[projektNamn]-Read`
+- `Guest-[projektNamn]-Edit`
+
+**Fördelar**:
+- **Översikt**: Snabb översikt över vilket projekt det gäller.
+- **Hanterbarhet**: Färre grupper att hantera om flera repos inom samma projekt.
+
+**Nackdelar**:
+- **Mindre Specifik**: Svårt att avgöra vilka repos inom projektet en grupp har tillgång till.
+- **Flexibilitet**: Mindre flexibel om olika repos inom samma projekt behöver olika behörighetsnivåer.
+
+### **3. Guest-Repo-Read/Edit**
+
+**Format**:
+- `Guest-Repo-Read`
+- `Guest-Repo-Edit`
+
+**Fördelar**:
+- **Allmänhet**: Indikerar att det handlar om repos generellt.
+- **Enkelhet**: Lättare att hantera med färre grupper.
+
+**Nackdelar**:
+- **Brist på Specifikitet**: Inte tydligt vilka specifika repos en grupp har tillgång till.
+- **Granulär Kontroll**: Svårare att tillämpa specifika behörigheter för enskilda repos.
 
 ---
 
-## **Azure DevOps Behörighetsmodeller för Repos**
-
-I Azure DevOps är behörighetshantering avgörande för att säkerställa att rätt personer har åtkomst till rätt resurser.
-
-### **Viktiga Punkter**
-
-- Varje projekt kan ha sina egna unika scenarior när det gäller att dela och ge behörigheter. 
-- Grupper som börjar med "Guest-" indikerar att de är avsedda för personer **utanför** projektets kärnmedlemmar.
-- Var noga med att göra detta tydligt för teamet för att undvika förväxlingar.
-
-### **Steg 1: Skapa Behörighetsgrupper**
-
-1. **Navigera till ditt Projekt**:
-   - Gå till "Project settings" i ditt Azure DevOps-projekt.
-  
-2. **Säkerhetsinställningar**:
-   - Under "Permissions", klicka på "Security".
-  
-3. **Skapa Grupper**:
-   - Klicka på "Create group".
-   - Namnge grupperna enligt följande modeller:
-     - `Guest-[Reponamn]-Read` 
-     - `Guest-[Reponamn]-Edit`
-     - `Guest-Repos-Read`
-     - `Guest-Repos-Edit`
-
-### **Steg 2: Konfigurera Behörigheter**
-
-1. **Sätt Standardbehörigheter**:
-   - För varje grupp du skapade, sätt "Deny" på högsta nivå för alla repos. Detta säkerställer att ingen åtkomst ges som standard.
-
-2. **Individuell Behörighetstilldelning**:
-   - Gå in i varje enskilt repo du vill justera.
-     - För `Guest-[Reponamn]-Read`: Ge "Read" behörighet.
-     - För `Guest-[Reponamn]-Edit`: Ge "Edit" behörighet.
-     - För `Guest-Repos-Read`: Ge "Read" behörighet.
-     - För `Guest-Repos-Edit`: Ge "Edit" behörighet.
-
-### **Exemplariska Scenarier**
-
-**Scenario 1:** 
-- **Situation:** Repo "FrontendCode". Extern utvecklare ska läsa, men inte redigera.
-- **Lösning:** Sätt "Deny" för alla på högsta nivå. Justera sedan behörigheterna inom "FrontendCode" repo för `Guest-FrontendCode-Read`.
-
-**Scenario 2:** 
-- **Situation:** Repo "BackendCode". Extern utvecklare ska kunna redigera.
-- **Lösning:** Sätt "Deny" för alla på högsta nivå. Justera sedan behörigheterna inom "BackendCode" repo för `Guest-BackendCode-Edit`.
-
----
-
-Hoppas att detta passar dina behov för din Wiki! Låt mig veta om du behöver ytterligare ändringar eller förtydliganden.
